@@ -36,9 +36,9 @@ class MainForm(npyscreen.FormBaseNew):
     def __validateFields(self) -> bool:
         if len(self.fileTypePicker.get_selected_objects()) < 1:
             return False
-        if self.player.value == None:
+        if self.player.value == '':
             return False
-        if self.fileName.value == None:
+        if self.fileName.value == '':
             return False
         return True
     
