@@ -3,6 +3,13 @@ import inspect
 from Enums import Output
 class MainForm(npyscreen.FormBaseNew):
 
+
+    def __init__(self):
+        self.FileMappings = {
+            Output.json: self.getDataJson,
+            Output.csv: self.getDataCsv
+        }
+
     def create(self):
         self.player = self.add(npyscreen.TitleText, name= 'Enter a Player:')
         self.myDepartment = self.add(npyscreen.TitleSelectOne, 
@@ -14,6 +21,12 @@ class MainForm(npyscreen.FormBaseNew):
     
     def onSubmit(self):
         a = 3
+    
+    def getDataJson(self):
+        pass
+
+    def getDataCsv(self):
+        pass
 
     def afterEditing(self):
         self.parentApp.setNextForm(None)
