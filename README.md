@@ -1,6 +1,7 @@
 NBA Stats Scraper
 
-License: MIT License
+License: 
+        MIT License
         Copyright (c) 2020 Jay Madden
 
         Permission is hereby granted, free of charge, to any person obtaining a copy

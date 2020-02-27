@@ -1,15 +1,6 @@
 import npyscreen
 import inspect
-from enum import Enum
-
-class Output(Enum):
-    json = 1
-    csv = 2
-
-    @staticmethod
-    def GetEnumAsList():
-        return [e.name for e in Output]
-
+from Enums import Output
 class MainForm(npyscreen.FormBaseNew):
 
     def create(self):
