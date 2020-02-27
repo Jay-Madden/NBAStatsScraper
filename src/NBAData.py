@@ -2,13 +2,28 @@ import requests
 from nba_api.stats.endpoints import commonplayerinfo, shotchartdetail
 from nba_api.stats.static import players
 import json as json
-import 
+from Enums import Output
 class NBAData:
 
-    def getData(self, player: str, ):
-        shotchart = shotchartdetail.ShotChartDetail(team_id=0,player_id=2544)
-        panda = shotchart.shot_chart_detail.get_data_frame()
-        #to_drop = ['GRID_TYPE', 'GAME_ID', 'GAME_EVENT_ID', 'PLAYER_ID', 'PLAYER_NAME', 'TEAM_ID', 'TEAM_NAME', 'GAME_DATE', 'HTM', 'VTM', 'EVENT_TYPE']
-        panda = panda.to_csv()
-        with open('data.csv', 'w') as f:
-            f.write(str(panda))
+    def __init__(self):
+        self.FileMappings = {
+            Output.json: self.__getDataJson,
+            Output.csv: self.__getDataCsv
+        }
+
+    def getData(self, player: str, fileType: Output ):
+
+        playerData = players.find_players_by_full_name(player)
+        shotCharts = {}
+
+        for player in playerData:
+            shotCharts[player['full_name']] = shotchartdetail.ShotChartDetail(team_id=0,player_id=player['id'])
+        
+        return self.FileMappings[fileType](shotCharts)
+
+    def __getDataJson(self, shotCharts) -> str:
+        return {key : value.shot_chart_detail.get_json() for key, value in shotCharts.items()} 
+
+    def __getDataCsv(self, shotCharts) -> str:
+        return {key : value.shot_chart_detail.get_data_frame().to_csv() for key, value in shotCharts.items()} 
+

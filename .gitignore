@@ -104,6 +104,10 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
+#data files
+.csv
+.json
+
 # Environments
 .env
 .venv
@@ -134,3 +138,4 @@ dmypy.json
 
 # pytype static type analyzer
 .pytype/
+src/csv-LeBron James.csv

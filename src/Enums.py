@@ -1,8 +1,7 @@
 from enum import Enum
-
 class Output(Enum):
-    json = 1
-    csv = 2
+    json = 0
+    csv = 1
 
     @staticmethod
     def GetEnumAsList():
