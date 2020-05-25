@@ -1,5 +1,5 @@
 import requests
-from nba_api.stats.endpoints import commonplayerinfo, shotchartdetail
+from nba_api.stats.endpoints import commonplayerinfo, shotchartdetail, playerdashptshots
 from nba_api.stats.static import players
 import json as json
 from Enums import Output
@@ -17,13 +17,13 @@ class NBAData:
         shotCharts = {}
 
         for player in playerData:
-            shotCharts[player['full_name']] = shotchartdetail.ShotChartDetail(team_id=0,player_id=player['id'])
+            shotCharts[player['full_name']] = playerdashptshots.PlayerDashPtShots(team_id=0,player_id=player['id'])
         
         return self.FileMappings[fileType](shotCharts)
 
     def __getDataJson(self, shotCharts) -> str:
-        return {key : value.shot_chart_detail.get_json() for key, value in shotCharts.items()} 
+        return {key : value.overall.get_json() for key, value in shotCharts.items()} 
 
     def __getDataCsv(self, shotCharts) -> str:
-        return {key : value.shot_chart_detail.get_data_frame().to_csv() for key, value in shotCharts.items()} 
+        return {key : value.overall.get_data_frame().to_csv() for key, value in shotCharts.items()} 
 

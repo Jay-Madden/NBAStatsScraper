@@ -1,3 +1,4 @@
+.json
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -139,3 +140,5 @@ dmypy.json
 # pytype static type analyzer
 .pytype/
 src/csv-LeBron James.csv
+test-James Harden.csv
+test-James Harden.json

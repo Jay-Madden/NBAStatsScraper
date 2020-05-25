@@ -22,7 +22,7 @@ class MainForm(npyscreen.FormBaseNew):
     def onSubmitPressed(self):
 
         if not self.__validateFields():
-            self.__displayError('One or more Input Fields missing')
+            self.__displayConfirmation('One or more Input Fields missing', 'VALIDATION ERROR')
             return
 
         npyscreen.notify('Loading Data, Please Wait', title='In Progress')
@@ -47,8 +47,8 @@ class MainForm(npyscreen.FormBaseNew):
             with open(f'{self.fileName.value}-{key}.{self.fileTypePicker.get_selected_objects()[0]}', 'w') as f:
                 f.write(value)
 
-    def __displayError(self, error):
-        npyscreen.notify_confirm(error, title='VALIDATION ERROR')
+    def __displayConfirmation(self, error, title):
+        npyscreen.notify_confirm(error, title=title)
         self.display()
 
     def afterEditing(self):
