@@ -19,6 +19,7 @@ you will need the nba-api wrapper, the requests module and pandas (optional)
 run the commands
 
 `pip install requests`
+
 `pip install nba_api`
 
 then to run the program simply do 
