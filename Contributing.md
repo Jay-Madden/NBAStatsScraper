@@ -22,4 +22,4 @@ pip install requests
 pip install nba_api
 
 then to run the program simply do 
-python3 src/__init__.py
+python3 src/`__init__.py`
