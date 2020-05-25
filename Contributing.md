@@ -14,13 +14,15 @@ To request a feature simply open an issue with a desription of what you would li
 
 Setting up the dev enviroment is very simple
 
-you will need the nba-api wrapper, the requests module and pandas (optional)
+you will need the following libs
 
 run the commands
 
 `pip install requests`
 
 `pip install nba_api`
+
+`pip install npyscreen`
 
 then to run the program simply do 
 `python3 src/__init__.py`
