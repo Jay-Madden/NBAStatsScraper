@@ -1,3 +1,3 @@
-NBA Stats Scraper
+## NBA Stats Scraper
 
-License: 
+This is an ongoing project to make it easy to gather NBA player and team data. The resulting data can be exported as a csv or as a pandas dataframe with more options to come. For more info on how to contribute to NBA stats scraper please see CONTRIBUTING.md, remember to follow the Code of Conduct.  If you are looking for good first issues there are several in the open issues tab. 
