@@ -10,3 +10,4 @@ For more info on how to contribute to NBA stats scraper please see CONTRIBUTING.
 The layout of the program is very simple. The entry point is in `__init__.py__` and the GUI is initialized from `NBAStatsScraper.py` 
 
 The primary UI logic resides in `MainForm.py` and the data layer and requests are funneled through `NBAData.py` 
+For a full rundown of the endpoints exposed by the API wrapper please see https://github.com/swar/nba_api/tree/master/docs for further info.
